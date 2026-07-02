@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Store--Preview</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">StorePreview</div>
+      <button id="menuToggle" class="menu-btn" aria-expanded="false">Menu</button>
+      <nav id="mainNav" class="nav">
+        <a href="#services">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Checkout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Only the best quality ingredients. The way mother nature intended.</h1>
+        <p class="lead">The crunchiest and most delicous snacks brought to your doorstep.</p>
+        <a href="#services" class="primary-btn">Explore Products</a>
+      </div>
+    </section>
+
+    <section id="services" class="container services">
+      <h2>Our Products</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="images/img-1.jpeg" alt="Treatment 1">
+          <h3>Oat Cookies Stuffed With Dates And Oranges</h3>
+          <p>$80 — Per pack of 20 Cookies. ( Delivery charge Not Included )</p>
+          <a href="#contact" class="small-btn">Add To Cart</a>
+        </article>
+        <article class="card">
+          <img src="images/img-2.jpeg" alt="Treatment 2">
+          <h3>Oat Crackers With Olives And Thyme </h3>
+          <p>$50 — Per pack of 20 Cookies. ( Delivery charge Not Included )</p>
+          <a href="#contact" class="small-btn">Add To Cart</a>
+        </article>
+        <article class="card">
+          <img src="images/img-3.jpeg" alt="Treatment 3">
+          <h3>Molases Cookies Stuffed With Dates</h3>
+          <p>$60 — Per pack of 20 Cookies. ( Delivery charge Not Included )</p>
+          <a href="#contact" class="small-btn">Add To Cart</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About Us</h2>
+      <p>Short paragraph about the shop, approach, products, and team. Use this area to tell the client’s story and values.</p>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact & Checkout</h2>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo: form submitted');">
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Your Feedback is Highly Appreciated
+          <textarea name="message" rows="4"></textarea>
+        </label>
+        <button type="submit" class="primary-btn">Submit Feedback</button>
+      </form>
+
+      <div class="contact-info">
+        <p><strong>Address:</strong> 123 Main St, City</p>
+        <p><strong>Phone:</strong> (555) 555-5555</p>
+      </div>
+
+      <button id="confirm-btn">Confirm Order</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ShopName</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle (tiny JS)
+    const btn = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
