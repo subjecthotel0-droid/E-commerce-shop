@@ -146,9 +146,11 @@ body{
 /* place Confirm button in the left column under the form */
 #confirm-btn {
   grid-column: 1;
-  justify-self: start;
+  justify-self: center;
   margin-top: 0.5rem;
   cursor: pointer;
+  padding: 10px 20px;
+  width: 100%;
 }
 /* Responsive */
 @media (max-width:900px){
