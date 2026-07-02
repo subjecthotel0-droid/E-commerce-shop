@@ -56,6 +56,36 @@ body{
   border: none;
   cursor: pointer;
 }
+/* base button */
+.btn {
+  display: inline-block;
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background 150ms ease, transform 60ms ease, box-shadow 150ms ease;
+}
+
+/* primary style used by Submit Feedback */
+.btn--primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* hover / active / focus */
+.btn--primary:hover { filter: brightness(0.95); transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0,0,0,.10); }
+.btn--primary:active { transform: translateY(0); }
+.btn--primary:focus { outline: 3px solid rgba(196,143,110,0.18); outline-offset: 2px; }
+
+/* small variant (for your .small-btn) */
+.btn--small { padding: .45rem .6rem; border-radius: 6px; font-size: .95rem; }
+.btn--secondary { background: #f6f6f6; color: var(--muted); border: 1px solid #eee; }
 /* Responsive */
 @media (max-width:900px){
   .cards{grid-template-columns:repeat(2,1fr)}
