@@ -30,23 +30,71 @@ body{
 .hero h1{margin:0 0 .5rem;font-size:clamp(1.6rem,3vw,2.4rem)}
 .lead{color:var(--muted);margin-bottom:1rem}
 
+/* =========================================
+   UPDATED BUTTON STYLES WITH SHIFTING BORDER
+   ========================================= */
+
 .primary-btn,
 .small-btn,
 #confirm-btn,
 .btn {
+  position: relative;
   display: inline-block;
   padding: .6rem 1rem;
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  border: 1px solid var(--accent);
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), #e2b08d);
-  box-shadow: 0 6px 16px rgba(196,143,110,0.24);
+  
+  /* Core Structure */
+  border: none; 
+  background: #1a1a1a; /* Inner solid color */
+  overflow: hidden; /* Clips the gradient border */
+  z-index: 1; /* Ensures text sits above the border */
+  
+  /* Transitions for smooth interaction */
   transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  box-shadow: 0 6px 16px rgba(196,143,110,0.24);
 }
 
+/* The Animated Gradient Border Layer */
+.primary-btn::before,
+.small-btn::before,
+#confirm-btn::before,
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px; /* Creates the border width (2px) */
+  z-index: -1; /* Sits behind the button content */
+  border-radius: 10px; /* Matches button radius + inset */
+  
+  /* Gradient using your theme colors */
+  background: linear-gradient(
+    90deg, 
+    var(--accent), 
+    #e2b08d, 
+    var(--accent-2), 
+    var(--accent), 
+    #e2b08d
+  );
+  background-size: 300% 100%; /* Expands gradient for shifting effect */
+  
+  /* Animation & Visibility */
+  animation: gradientShift 3s ease infinite;
+  opacity: 0; /* Hidden by default, shows on hover */
+  transition: opacity 0.3s ease;
+}
+
+/* Show gradient on hover */
+.primary-btn:hover::before,
+.small-btn:hover::before,
+#confirm-btn:hover::before,
+.btn:hover::before {
+  opacity: 1;
+}
+
+/* Hover Effects (Lift & Shadow) */
 .primary-btn:hover,
 .small-btn:hover,
 #confirm-btn:hover,
@@ -56,6 +104,7 @@ body{
   filter: brightness(1.02);
 }
 
+/* Active/Click Effects */
 .primary-btn:active,
 .small-btn:active,
 #confirm-btn:active,
@@ -64,6 +113,7 @@ body{
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Focus Accessibility */
 .primary-btn:focus-visible,
 .small-btn:focus-visible,
 #confirm-btn:focus-visible,
@@ -71,6 +121,13 @@ body{
   outline: 3px solid rgba(196,143,110,0.22);
   outline-offset: 2px;
 }
+
+/* Keyframe Animation Definition */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}   
 
 /* Services */
 .services h2, .about h2, .contact h2{margin-top:0}
